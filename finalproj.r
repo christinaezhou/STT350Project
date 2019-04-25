@@ -1,5 +1,5 @@
 library(readr)
-proj <- read_csv("Downloads/project - Form Responses 1 (1).csv")
+proj <- read_csv("Downloads/finalproject.csv")
 
 N<- length(proj$Timestamp)
 
@@ -16,7 +16,7 @@ n = (N*(0.8)* (0.2)) /((N-1 ) * d + (0.8) * (0.2))
 
 
 #choose sample size of 50 from N observations 
-n = 50
+n = 76
 set.seed(4000)
 sample = sample(1:N, n)
 
@@ -39,6 +39,8 @@ bound = 2 * sqrt(varhat)
 
 y1bar + bound 
 y1bar - bound
+
+tauybar <- y1bar * 16747
 ###################################################333
 oncampus <- which(sset$`Do you live on campus now or have you ever lived on campus?` == "Yes, currently") 
 off <- which(sset$`Do you live on campus now or have you ever lived on campus?` == "No, but I used to")
@@ -113,6 +115,7 @@ pst - boundpst
 v<- which((sset$`Do you have dietary limitations or preferences` != "No"))
 diet <- which((sset$`Do you have dietary limitations or preferences` != "No") & (sset$`Do you agree that there are sufficient healthy food options on campus` == "agree" | sset$`Do you agree that there are sufficient healthy food options on campus` == "slightly agree")) 
 
+length(diet) / n
 # there are length(v) number of people with dietary limitations
 # there are length(diet) number of people who think there are enough healthy food options 
 
